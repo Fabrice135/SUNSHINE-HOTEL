@@ -1,0 +1,364 @@
+/* Import luxury fonts */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Modern Vibrant Design System - All colors MUST be HSL */
+
+@layer base {
+  :root {
+    /* Modern Darker Color Palette */
+    --background: 25 10% 90%;        /* Darker warm background */
+    --foreground: 240 30% 12%;       /* Darker navy text */
+
+    --card: 25 5% 96%;
+    --card-foreground: 240 30% 12%;
+
+    --popover: 25 5% 96%;
+    --popover-foreground: 240 30% 12%;
+
+    /* Primary blue color - darker */
+    --primary: 225 85% 45%;          /* Darker vibrant blue */
+    --primary-foreground: 0 0% 100%;
+
+    /* Orange accent color - darker */
+    --secondary: 25 90% 55%;         /* Darker vibrant orange */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 25 10% 88%;
+    --muted-foreground: 240 20% 45%;
+
+    /* Coral accent - darker */
+    --accent: 15 80% 58%;            /* Darker coral color */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 25 10% 84%;
+    --input: 25 10% 84%;
+    --ring: 225 100% 50%;
+
+    --radius: 1.5rem;
+
+    /* Modern gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(225 100% 50%) 0%, hsl(265 80% 60%) 100%);
+    --gradient-orange: linear-gradient(135deg, hsl(25 100% 60%) 0%, hsl(15 85% 65%) 100%);
+    --gradient-warm: linear-gradient(180deg, hsl(25 15% 97%) 0%, hsl(25 25% 95%) 100%);
+    
+    /* Modern shadows */
+    --shadow-modern: 0 25px 50px -12px hsl(225 100% 50% / 0.25);
+    --shadow-orange: 0 20px 40px -10px hsl(25 100% 60% / 0.3);
+    --shadow-soft: 0 10px 30px -5px hsl(240 25% 15% / 0.1);
+    
+    /* Animations */
+    --transition-modern: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 240 25% 8%;        /* Dark navy for dark mode */
+    --foreground: 25 15% 97%;
+
+    --card: 240 20% 10%;
+    --card-foreground: 25 15% 97%;
+
+    --popover: 240 20% 10%;
+    --popover-foreground: 25 15% 97%;
+
+    --primary: 225 100% 60%;         /* Bright blue in dark mode */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 25 100% 65%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 15% 15%;
+    --muted-foreground: 25 15% 70%;
+
+    --accent: 15 85% 70%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 15% 20%;
+    --input: 240 15% 20%;
+    --ring: 225 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  /* Modern Typography */
+  .font-display {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Modern Gradients */
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .bg-gradient-orange {
+    background: var(--gradient-orange);
+  }
+  
+  .bg-gradient-warm {
+    background: var(--gradient-warm);
+  }
+
+  /* Modern Shadows */
+  .shadow-modern {
+    box-shadow: var(--shadow-modern);
+  }
+  
+  .shadow-orange {
+    box-shadow: var(--shadow-orange);
+  }
+  
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  /* Modern Animations */
+  .transition-modern {
+    transition: var(--transition-modern);
+  }
+
+  /* Hover Effects */
+  .hover-lift {
+    @apply transition-modern hover:transform hover:-translate-y-3 hover:shadow-modern;
+  }
+  
+  .hover-glow {
+    @apply transition-modern hover:shadow-orange;
+  }
+
+  /* Text Effects */
+  .text-gradient-blue {
+    background: linear-gradient(135deg, hsl(225 100% 50%), hsl(265 80% 60%));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-orange {
+    background: var(--gradient-orange);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Modern Card Shapes */
+  .card-modern {
+    border-radius: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-organic {
+    border-radius: 2rem 2rem 2rem 0.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-rounded {
+    border-radius: 3rem 1rem 3rem 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Blob shapes */
+  .blob-1 {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+
+  .blob-2 {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  }
+
+  .blob-3 {
+    border-radius: 40% 60% 60% 40% / 60% 40% 60% 40%;
+  }
+
+  /* Responsive Text Sizes */
+  .text-responsive-xs {
+    @apply text-sm md:text-base lg:text-lg;
+  }
+  
+  .text-responsive-sm {
+    @apply text-base md:text-lg lg:text-xl;
+  }
+  
+  .text-responsive-md {
+    @apply text-lg md:text-xl lg:text-2xl;
+  }
+  
+  .text-responsive-lg {
+    @apply text-2xl md:text-3xl lg:text-4xl;
+  }
+  
+  .text-responsive-xl {
+    @apply text-3xl md:text-4xl lg:text-5xl xl:text-6xl;
+  }
+  
+  .text-responsive-2xl {
+    @apply text-4xl md:text-5xl lg:text-6xl xl:text-7xl;
+  }
+
+  /* Responsive Spacing */
+  .section-padding {
+    @apply py-12 md:py-16 lg:py-20 xl:py-24;
+  }
+  
+  .container-padding {
+    @apply px-4 md:px-6 lg:px-8 xl:px-12;
+  }
+
+  /* Enhanced Grid Responsive */
+  .grid-responsive-1 {
+    @apply grid grid-cols-1;
+  }
+  
+  .grid-responsive-2 {
+    @apply grid grid-cols-2 md:grid-cols-2;
+  }
+  
+  .grid-responsive-3 {
+    @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3;
+  }
+  
+  .grid-responsive-4 {
+    @apply grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4;
+  }
+
+  /* Medium device specific responsive improvements */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .section-padding {
+      @apply py-10;
+    }
+    
+    .container-padding {
+      @apply px-4;
+    }
+    
+    .text-responsive-xl {
+      @apply text-2xl;
+    }
+    
+    .text-responsive-lg {
+      @apply text-xl;
+    }
+    
+    .text-responsive-md {
+      @apply text-lg;
+    }
+  }
+
+  /* Enhanced Cards */
+  .card-hover-float {
+    @apply transition-all duration-500 ease-out hover:transform hover:-translate-y-4 hover:shadow-modern hover:scale-105;
+  }
+  
+  .card-hover-glow {
+    @apply transition-all duration-300 ease-out hover:shadow-orange hover:scale-105;
+  }
+
+  /* Scroll Trigger Animations */
+  .scroll-fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+  }
+  
+  .scroll-fade-in.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .scroll-scale-in {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.5s ease-out;
+  }
+  
+  .scroll-scale-in.animate {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .scroll-slide-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.6s ease-out;
+  }
+  
+  .scroll-slide-left.animate {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .scroll-slide-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.6s ease-out;
+  }
+  
+  .scroll-slide-right.animate {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Stagger children animations */
+  .stagger-children > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+  }
+  
+  .stagger-children.animate > *:nth-child(1) { transition-delay: 0ms; }
+  .stagger-children.animate > *:nth-child(2) { transition-delay: 100ms; }
+  .stagger-children.animate > *:nth-child(3) { transition-delay: 200ms; }
+  .stagger-children.animate > *:nth-child(4) { transition-delay: 300ms; }
+  .stagger-children.animate > *:nth-child(5) { transition-delay: 400ms; }
+  .stagger-children.animate > *:nth-child(6) { transition-delay: 500ms; }
+  
+  .stagger-children.animate > * {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
